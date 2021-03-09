@@ -20,7 +20,7 @@ const mix = require('laravel-mix');
     ], 'public/css/app.css')
 
     /* Compilamos los js que tenemos y los copmilamos en app.js */
-    .js('resources/js/app.js', 'public/js')
+    .js('resources/js/app.js', 'public/js/app.js')
 
     /* Compilamos los js de jquery y bottstrap y los compilamos en el archivo vendor.js */
     .scripts([
@@ -32,8 +32,8 @@ const mix = require('laravel-mix');
     .copy('resources/vendor/fontawesome-free-5.15.2/webfonts', 'public/webfonts')
 
     /* Con esto validamos las diferentes versions de los archivos compilados */
-    .version()
-
+    /* .version() */
+;
 
 
 
