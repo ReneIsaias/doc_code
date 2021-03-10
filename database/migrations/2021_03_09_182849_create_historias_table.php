@@ -24,7 +24,6 @@ class CreateHistoriasTable extends Migration
             $table->string('domicilio');
             $table->string('ocupacion');
             $table->string('escolaridad');
-
             $table->boolean('estado')->default(true);
 
             $table->timestamps();
