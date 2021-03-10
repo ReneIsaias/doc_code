@@ -10,7 +10,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     {{-- Agregamos un icono a la aplicación web --}}
-    <link rel="icon" href="{{ asset('favicons/favicon-16x16.png')}}">
+    <link rel="icon" href="{{ asset('favicons/favicon.png')}}">
     <!-- Title -->
     <title>
         {{ config('app.name', 'Codeway') }} | @yield('title_postfix')

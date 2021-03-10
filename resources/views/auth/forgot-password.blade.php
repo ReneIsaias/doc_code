@@ -5,9 +5,9 @@
 @section('content')
 
 <div class="login-box">
-    <div class="login-logo">
+    {{-- <div class="login-logo">
         <a href="/"><strong>Recuperación de contraseña</strong></a>
-    </div>
+    </div> --}}
     @if (session('status'))
         <div class="alert alert-success" role="alert">
             <span>{{ session('status') }}</span>

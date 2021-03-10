@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -18,5 +18,33 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.0.5/js/adminlte.min.js"></script>
+    </body>
+</html> --}}
+
+
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    {{-- Agregamos un icono a la aplicación web --}}
+    <link rel="icon" href="{{ asset('favicons/favicon.png')}}">
+    <!-- Title -->
+    <title>{{ config('app.name', 'Codeway') }} | @yield('title', 'Auth')</title>
+    {{-- Compilado --}}
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+</head>
+    {{-- Cuerpo || Body --}}
+    {{-- Esta clase permite que el sidebar se oculte casi por completo, solo quedan los iconos  --}}
+    <body class="hold-transition login-page">
+        <main role="main">
+            @yield('content')
+        </main>
+        {{-- Compilado --}}
+        <script src="{{ mix('js/vendor.js') }}"></script>
+        <script src="{{ mix('js/app.js') }}"></script>
     </body>
 </html>

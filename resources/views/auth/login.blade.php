@@ -4,9 +4,9 @@
 
 @section('content')
 <div class="login-box">
-    <div class="login-logo">
+    {{-- <div class="login-logo">
         <a href="/"><strong>Codeway Soluciones Integrales</strong></a>
-    </div>
+    </div> --}}
     <div class="card">
         <div class="card-body login-card-body">
             <form action="{{ route('login') }}" method="POST">

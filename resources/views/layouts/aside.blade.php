@@ -1,6 +1,6 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-3">
     <a href="{{ url('/home') }}" class="brand-link elevation-1">
-        <img src="{{ asset('favicons/logo_codeway.png') }}" class="logo_empresa">
+        <img src="{{ asset('favicons/somedig.png') }}" class="logo_empresa">
     </a>
     <div class="sidebar">
         <nav class="mt-1">
