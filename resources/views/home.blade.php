@@ -17,6 +17,7 @@
     <div class="card">
         Welcome
     </div>
+    <hr>
+    {{ $message }}
 
-@stop
-
+@endsection

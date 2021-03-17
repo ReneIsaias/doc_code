@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PacientesController;
+use App\Http\Controllers\MedicosController;
+use App\Http\Controllers\ConsultasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +24,14 @@ Route::get('/', function () {
 
 
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('/home', function () {
-        return view('home');
-    });
+
+    Route::get('home', [HomeController::class, 'index'])->name('home');
+
+    Route::resource('citas', EventController::class)->names('citas');
+
+    Route::resource('pacientes', PacientesController::class)->names('pacientes');
+
+    Route::resource('medicos', MedicosController::class)->names('medicos');
+
+    Route::resource('consultas', ConsultasController::class)->names('consultas');
 });
-
-

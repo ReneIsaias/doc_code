@@ -7,12 +7,32 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{ route('home') }}" class="nav-link">
                         <i class="nav-icon fas fa-home"></i>
                         <p>Principal</p>
                     </a>
                 </li>
 
+                <li class="nav-item">
+                    <a href="{{ route('medicos.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-tasks"></i>
+                        <p>Medicos</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('pacientes.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-tasks"></i>
+                        <p>Pacientes</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('citas.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-tasks"></i>
+                        <p>Citas</p>
+                    </a>
+                </li>
                 {{-- 
                     
                 @can('haveaccess', 'task.index')

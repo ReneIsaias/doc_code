@@ -12,19 +12,13 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+    protected $table = 'users';
+    
     protected $fillable = [
         'name',
-        'apellidos',
-        'fechanacimiento',
-        'telefono',
         'email',
+        'email_verified_at',
         'password',
-        'estado',
     ];
 
     /**
@@ -46,10 +40,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    /* Un usuario pertence a una o muchas citas */
-    public function citas()
+    /* Un usuario pertence a uno o muchos eventos */
+    public function events()
     {
-        return $this->belongsToMany(Cita::class)->withTimestamps();
+        return $this->belongsToMany(Event::class)->withTimestamps();
     }
 
     /* Un usuario pertence a una o muchas roles */
@@ -58,15 +52,9 @@ class User extends Authenticatable
         return $this->belongsToMany(Role::class)->withTimestamps();
     }
 
-    /* Un usuario tiene muchas asignaciónes  */
-    public function asignaciones()
+    /* Un usuario pertence a una o muchas permisos */
+    public function permisos()
     {
-        return $this->hasMany(Asignapaciente::class);
-    }
-
-    /* Un usuario tiene muchas historias  */
-    public function historias()
-    {
-        return $this->hasMany(Historiales::class);
+        return $this->belongsToMany(Permission::class)->withTimestamps();
     }
 }
