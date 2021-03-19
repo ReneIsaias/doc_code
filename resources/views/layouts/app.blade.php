@@ -13,7 +13,7 @@
     <link rel="icon" href="{{ asset('favicons/favicon.png')}}">
     <!-- Title -->
     <title>
-        {{ config('app.name', 'Codeway') }} | @yield('title_postfix')
+        {{ config('app.name', 'Laravel') }} | @yield('title_postfix')
     </title>
 
     {{-- Compilado --}}

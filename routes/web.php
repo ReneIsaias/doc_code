@@ -20,7 +20,7 @@ use App\Http\Controllers\ConsultasController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('principal');
 
 
 Route::group(['middleware' => ['auth']], function () {
