@@ -31,9 +31,11 @@ class PacientesController extends Controller
      */
     public function index()
     {
+        return view('paciente.index');
+
         $pacientes = Paciente::with('estado','escolaridade','ocupacione','grupo')->get();
 
-        return view('paciente.index', compact('pacientes'));
+        return view('paciente.inicio', compact('pacientes'));
     }
 
     /**

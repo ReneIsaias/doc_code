@@ -82,6 +82,9 @@
 
         </div>
 
+        {{-- Livewire --}}
+        @livewireScripts
+
         {{-- Compilado --}}
         <script src="{{ mix('js/vendor.js') }}"></script>
         <script src="{{ mix('js/app.js') }}"></script>
@@ -91,9 +94,6 @@
 
         {{-- js --}}
         @yield('js')
-
-        {{-- Livewire --}}
-        @livewireScripts
 
     </body>
 </html>

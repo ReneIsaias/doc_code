@@ -16,9 +16,11 @@ class MedicosController extends Controller
      */
     public function index()
     {
+        return view('medico.index');
+        
         $medicos = Medico::with('especialidade')->get();
 
-        return view('medico.index', compact('medicos'));
+        return view('medico.inicio', compact('medicos'));
     }
 
     /**

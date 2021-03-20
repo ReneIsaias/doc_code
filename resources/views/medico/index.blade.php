@@ -22,55 +22,26 @@
 
 @section('content')
 
-    <div class="card">
-        <div class="card-header">
-            <div class="row">
-                <div class="col-8">
-                    <h4 class="text-uppercase">Lista de Medicos</h4>
-                </div>
-                <div class="col-4">
-                    <a href="{{ route('medicos.create') }}" type="button" class="btn btn-primary float-right">Agregar Medico</a>
-                </div>
-            </div>
-        </div>
-        <div class="card-body">
-            <div class="table-responsive">
-                <table id="pacientesTable" class="table table-white table-striped table-hover">
-                    <thead>
-                        <tr>
-                            <th scope="col">Nombre medico</th>
-                            <th scope="col">Telefono</th>
-                            <th scope="col">Especialidad</th>
-                            {{-- <th scope="colgroup">Acciones</th> --}}
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($medicos as $medico)
-                            <tr>
-                                <td>{{ $medico->name }} {{ $medico->lastnames }}</td>
-                                <td>{{ $medico->phone }}</td>
-                                <td>
-                                    @isset($medico->especialidade)
-                                        {{ $medico->especialidade->description }}
-                                    @endisset
-                                </td>
-                                {{-- <td>
-                                    <div class="btn-group" role="group">
-                                        <button type="button" class="btn btn-info">Mostrar</button>
-                                        <button type="button" class="btn btn-success">Editar</button>
-                                        <button type="button" class="btn btn-danger">Borrar</button>
-                                    </div>
-                                </td> --}}
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+    @livewire('medico.medico-component')
 
 @endsection
 
 @section('js')
-    {{--  --}}
+    <script>
+        window.livewire.on('medicoEventoCrear', ()=>{
+            $('#crearMedico').modal('hide');
+        })
+
+        window.livewire.on('medicoEventoActualizar', ()=>{
+            $('#actualizarMedico').modal('hide');
+        })
+
+        window.livewire.on('medicoEventoMostrar', ()=>{
+            $('#mostrarMedico').modal('hide');
+        })
+
+        window.livewire.on('medicoEventoEliminar', ()=>{
+            $('#eliminarMedico').modal('hide');
+        })
+    </script>
 @endsection
