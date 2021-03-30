@@ -35,7 +35,7 @@ class PacienteComponent extends Component
 
     public $informante_id, $nameI, $lastnamesI, $phoneI, $statusI, $parentesco_id;
 
-    public $search = '', $perPage = '10', $page = 1, $total;
+    public $search = '', $perPage = '10', $page = 1, $total, $sort = 'id', $direction = 'asc';
 
     public $rules = [
         'curp'              => 'required|string|max:18|unique:pacientes,curp',
@@ -95,7 +95,7 @@ class PacienteComponent extends Component
         $this->resetValidation();
     }
 
-    public function updated($propertyName)
+    public function updatedInTimeNow($propertyName)
     {
         if ($this->accion == "store") {
             $this->validateOnly($propertyName, [
@@ -460,15 +460,29 @@ class PacienteComponent extends Component
         return view(
             'livewire.paciente.paciente-component',
             [
-                'pacientes' => Paciente::latest('id')
-                    ->where('curp', 'LIKE', "%{$this->search}%")
+                'pacientes' => Paciente::where('curp', 'LIKE', "%{$this->search}%")
                     ->OrWhere('name', 'LIKE', "%{$this->search}%")
                     ->OrWhere('lastnames', 'LIKE', "%{$this->search}%")
                     ->OrWhere('email', 'LIKE', "%{$this->search}%")
                     ->OrWhere('phone', 'LIKE', "%{$this->search}%")
+                    ->orderBy($this->sort, $this->direction)
                     ->paginate($this->perPage)
             ],
             compact('ocupaciones', 'escolaridades', 'estados', 'grupos', 'parentescos')
         );
+    }
+    
+    public function order($sort)
+    {
+        if ($this->sort == $sort) {
+            if ($this->direction == "desc") {
+                $this->direction = "asc";
+            } else {
+                $this->direction = "desc";
+            }
+        }else{
+            $this->sort = $sort;
+            $this->direction = "asc";
+        }
     }
 }

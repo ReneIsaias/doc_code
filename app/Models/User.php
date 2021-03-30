@@ -53,7 +53,7 @@ class User extends Authenticatable
     }
 
     /* Un usuario pertence a una o muchas permisos */
-    public function permisos()
+    public function permissions()
     {
         return $this->belongsToMany(Permission::class)->withTimestamps();
     }

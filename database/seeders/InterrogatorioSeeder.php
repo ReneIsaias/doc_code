@@ -46,7 +46,7 @@ class InterrogatorioSeeder extends Seeder
         ]);
         
         $aparato = Aparato::create([
-            'description'   => 'Nervioco',
+            'description'   => 'Nervioso',
         ]);
 
 

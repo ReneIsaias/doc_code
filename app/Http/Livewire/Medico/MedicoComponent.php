@@ -67,7 +67,7 @@ class MedicoComponent extends Component
         $this->resetValidation();
     }
 
-    public function updated($propertyName)
+    public function updatedInTimeNow($propertyName)
     {
         if ($this->accion == "store") {
             $this->validateOnly($propertyName, [

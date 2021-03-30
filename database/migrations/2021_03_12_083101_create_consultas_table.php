@@ -16,7 +16,7 @@ class CreateConsultasTable extends Migration
         Schema::create('consultas', function (Blueprint $table) {
             $table->id();
 
-            $table->string('folio');
+            $table->string('folio')->unique();
             $table->date('date');
             $table->text('description');
             $table->boolean('status')->default('1');

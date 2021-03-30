@@ -17,7 +17,7 @@ class CreateAparatoInterrogatorioTable extends Migration
             $table->id();
 
             $table->foreignId('aparato_id')->references('id')->on('aparatos')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreignId('interrogatorios_id')->references('id')->on('interrogatorios')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('interrogatorio_id')->references('id')->on('interrogatorios')->onDelete('cascade')->onUpdate('cascade');
 
             $table->timestamps();
         });

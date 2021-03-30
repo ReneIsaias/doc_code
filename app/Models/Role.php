@@ -24,7 +24,7 @@ class Role extends Model
     }
 
     /* Un rol pertence a uno o muchos permisos */
-    public function permisos()
+    public function permissions()
     {
         return $this->belongsToMany(Permission::class)->withTimestamps();
     }

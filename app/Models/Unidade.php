@@ -12,7 +12,11 @@ class Unidade extends Model
     protected $table = 'unidades';
 
     protected $fillable = [
+        'rfc',
+        'name',
         'description',
+        'cp',
+        'address',
         'status',
     ];
 

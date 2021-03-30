@@ -26,15 +26,15 @@ class DatoSeeder extends Seeder
         ]);
 
         $tipo = Tipo::create([
-            'description'   => 'IMC',
+            'description'   => 'IMC (Indice de masa muscular)',
         ]);
 
         $tipo = Tipo::create([
-            'description'   => 'Temp',
+            'description'   => 'Temperatura',
         ]);
 
         $tipo = Tipo::create([
-            'description'   => 'FC',
+            'description'   => 'Frecuencia Cardiaca (FC)',
         ]);
 
         $tipo = Tipo::create([

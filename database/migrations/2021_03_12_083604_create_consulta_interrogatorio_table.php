@@ -17,7 +17,7 @@ class CreateConsultaInterrogatorioTable extends Migration
             $table->id();
 
             $table->foreignId('consulta_id')->references('id')->on('consultas')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreignId('interrogatorios_id')->references('id')->on('interrogatorios')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('interrogatorio_id')->references('id')->on('interrogatorios')->onDelete('cascade')->onUpdate('cascade');
 
             $table->timestamps();
         });

@@ -35,14 +35,34 @@
                 <table wire:poll.10000ms id="pacientesTable" class="table table-white table-striped table-hover">
                     <thead>
                         <tr>
-                            <th scope="col">Nombre paciente</th>
-                            <th scope="col">Edad</th>
+                            <th wire:click="order('name')" scope="col">Nombre paciente 
+                                @if ($sort == 'name')
+                                    @if ($direction == 'asc')
+                                        <i class="fas fa-sort-alpha-up-alt float-right mt-1"></i>    
+                                    @else
+                                        <i class="fas fa-sort-alpha-down-alt float-right mt-1"></i>    
+                                    @endif
+                                @else
+                                    <i class="fas fa-sort float-right mt-1"></i>
+                                @endif 
+                            </th>
+                            <th wire:click="order('age')" scope="col">Edad
+                                @if ($sort == 'age')
+                                    @if ($direction == 'asc')
+                                        <i class="fas fa-sort-alpha-up-alt float-right mt-1"></i>    
+                                    @else
+                                        <i class="fas fa-sort-alpha-down-alt float-right mt-1"></i>    
+                                    @endif
+                                @else
+                                    <i class="fas fa-sort float-right mt-1"></i>
+                                @endif 
+                            </th>
                             <th scope="col">Sexo</th>
                             <th scope="col">Grupo</th>
-                            <th scope="col">Escolaridad</th>
+                            <th scope="col">Escolaridad</th> 
                             <th scope="col">Ocupación</th>
                             <th scope="col">Estado civil</th>
-                            {{-- <th scope="colgroup">Acciones</th> --}}
+                            <th scope="colgroup">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -70,6 +90,12 @@
                                     @isset($paciente->estado)
                                         {{ $paciente->estado->description }}
                                     @endisset
+                                </td>
+                                <td>
+                                    <div class="btn-group" role="group">
+                                        <a href="{{ route('pacientes.show', $paciente->id) }}" type="button" class="btn btn-info">Historial</a>
+                                        <a href="{{ route('pacientes.edit', $paciente->id) }}" type="button" class="btn btn-success">Consulta</a>
+                                    </div>
                                 </td>
                                 {{-- <td>
                                     <div class="btn-group" role="group">

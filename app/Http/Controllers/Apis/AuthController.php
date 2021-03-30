@@ -26,6 +26,8 @@ class AuthController extends Controller
             'password'          => Hash::make($validatedData['password']),
         ]);
 
+        $user->roles()->attach(3);
+
         $token = $user->createToken('auth_token')->plainTextToken;
 
         return response()->json([
@@ -56,6 +58,13 @@ class AuthController extends Controller
     /* Obtiene la información de un usuario */
     public function infoUser(Request $request)
     {
-        return $request->user(); 
+        return response()->json([
+            'user' => $request->user(),
+            'rol'  => $request->user()->roles,
+        ]);
+        /* return response()->json([
+            'user' => Auth::user(),
+            'rol'  => Auth::user()->roles,
+        ]); */
     }
 }

@@ -14,9 +14,11 @@ class ConsultasController extends Controller
      */
     public function index()
     {
+        return view('consulta.index');
+
         $consultas = Consulta::all();
 
-        return view('consulta.index', compact('consultas'));
+        return view('consulta.inicio', compact('consultas'));
     }
 
     /**
