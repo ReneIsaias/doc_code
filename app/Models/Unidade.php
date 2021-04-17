@@ -9,20 +9,20 @@ class Unidade extends Model
 {
     use HasFactory;
 
+    protected $table = 'unidades';
+
     protected $fillable = [
         'rfc',
-        'nombre',
-        'descripcion',
-        'municipio',
-        'colonia',
-        'codigo',
-        'direccion',
-        'estado',
+        'name',
+        'description',
+        'cp',
+        'address',
+        'status',
     ];
 
-    /* Una unidad pertence a una historiales */
-    public function historiale()
+    /* Una unidad pertence a una o muchas consultas */
+    public function consultas()
     {
-        return $this->belongsTo(Historiale::class);
+        return $this->belongsTo(Consulta::class);
     }
 }
